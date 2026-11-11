@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Korean Local Data (Naver Map, Kakao Map) via Apify
+  version: 1.0.0
+  description: Search Korean businesses on Naver Map and Kakao Map and read Naver Place visitor reviews.
+servers:
+  - url: https://api.apify.com/v2
+paths:
+  /acts/magenta_courser~naver-place-search-scraper/run-sync-get-dataset-items:
+    post:
+      operationId: searchNaverPlaces
+      summary: Search Naver Map by keyword and get business listings in Naver's ranking order.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [queries]
+              properties:
+                queries:
+                  type: array
+                  items: { type: string }
+                  description: Korean search keywords combining an area and a category, e.g. "성수 카페".
+                maxPlacesPerQuery:
+                  type: integer
+                  default: 20
+                  minimum: 1
+                  maximum: 50
+      responses:
+        "201":
+          description: One item per place.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    rank: { type: integer }
+                    id: { type: string, description: Naver place id. Pass it to getNaverPlaceReviews. }
+                    name: { type: string }
+                    category: { type: string }
+                    roadAddress: { type: string }
+                    phone: { type: [string, "null"] }
+                    latitude: { type: number }
+                    longitude: { type: number }
+                    visitorReviewScore: { type: [number, "null"] }
+                    visitorReviewCount: { type: [integer, "null"] }
+                    blogCafeReviewCount: { type: [integer, "null"] }
+                    url: { type: string }
+  /acts/magenta_courser~naver-place-reviews-scraper/run-sync-get-dataset-items:
+    post:
+      operationId: getNaverPlaceReviews
+      summary: Get the newest visitor reviews of Naver Map places.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [places]
+              properties:
+                places:
+                  type: array
+                  items: { type: string }
+                  description: Naver place ids or Naver Map URLs. At most 3 per call.
+                maxReviewsPerPlace:
+                  type: integer
+                  default: 30
+                  minimum: 1
+                  maximum: 50
+                includePlaceSummary:
+                  type: boolean
+                  default: false
+      responses:
+        "201":
+          description: One item per review.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    placeId: { type: string }
+                    placeName: { type: string }
+                    rating: { type: [number, "null"] }
+                    text: { type: [string, "null"] }
+                    visitedAt: { type: [string, "null"] }
+                    keywords: { type: array, items: { type: string } }
+                    menuItem: { type: [string, "null"] }
+                    ownerReply: { type: [string, "null"] }
+  /acts/magenta_courser~kakaomap-place-search-scraper/run-sync-get-dataset-items:
+    post:
+      operationId: searchKakaoPlaces
+      summary: Search Kakao Map by keyword and get business listings. Same field names as searchNaverPlaces.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [queries]
+              properties:
+                queries:
+                  type: array
+                  items: { type: string }
+                  description: Korean search keywords, e.g. "을지로 맛집".
+                maxPlacesPerQuery:
+                  type: integer
+                  default: 15
+                  minimum: 1
+                  maximum: 45
+      responses:
+        "201":
+          description: One item per place.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    rank: { type: integer }
+                    id: { type: string }
+                    name: { type: string }
+                    category: { type: string }
+                    roadAddress: { type: [string, "null"] }
+                    phone: { type: [string, "null"] }
+                    visitorReviewScore: { type: [number, "null"] }
+                    visitorReviewCount: { type: [integer, "null"] }
+                    url: { type: string }
+components:
+  schemas: {}
