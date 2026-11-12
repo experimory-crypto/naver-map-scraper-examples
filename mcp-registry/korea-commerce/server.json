@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.experimory-crypto/korea-commerce",
+  "title": "Korea Commerce: Naver Shopping, Olive Young, Daiso",
+  "description": "Korean product prices and rankings from Naver Shopping, Olive Young and Daiso. Pay per result.",
+  "repository": {
+    "url": "https://github.com/experimory-crypto/naver-map-scraper-examples",
+    "source": "github"
+  },
+  "websiteUrl": "https://apify.com/magenta_courser/korea-commerce-mcp",
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://magenta-courser--korea-commerce-mcp.apify.actor/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Apify API token as a Bearer token: 'Bearer <APIFY_TOKEN>' (console.apify.com > Settings > API & Integrations)",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
