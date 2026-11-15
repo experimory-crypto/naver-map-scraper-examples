@@ -9,6 +9,7 @@ Examples for getting live data from **Naver Map, Kakao Map, Naver Shopping and O
 | Kakao Map places | [kakaomap-place-search-scraper](https://apify.com/magenta_courser/kakaomap-place-search-scraper) | Keyword → businesses, same field names as the Naver Actor |
 | Naver Shopping ranks | [naver-shopping-rank-tracker](https://apify.com/magenta_courser/naver-shopping-rank-tracker) | Keyword → ranked products with price, store, reviews |
 | Olive Young best sellers | [oliveyoung-ranking-scraper](https://apify.com/magenta_courser/oliveyoung-ranking-scraper) | Market and category → Top 100 ranking with price and rank change |
+| Olive Young Global Mall low-star reviews | [oliveyoung-reviews-scraper](https://apify.com/magenta_courser/oliveyoung-reviews-scraper) · [Try the 1–2-star example](https://apify.com/magenta_courser/oliveyoung-reviews-scraper/examples/find-1-2-star-olive-young-global-reviews) | One Global Mall product ID → up to 30 matching reviews from the past two weeks, in their original language |
 | Daiso Korea best sellers | [daiso-ranking-scraper](https://apify.com/magenta_courser/daiso-ranking-scraper) | Category → ranked products with price |
 | MCP server, local data | [korea-local-data-mcp](https://apify.com/magenta_courser/korea-local-data-mcp) | Naver Map and Kakao Map tools for Claude and other MCP clients |
 | MCP server, commerce | [korea-commerce-mcp](https://apify.com/magenta_courser/korea-commerce-mcp) | Naver Shopping, Daiso, Olive Young and Ohouse tools |
@@ -41,5 +42,5 @@ Google Maps has limited coverage in South Korea. People there use Naver Map and 
 ## Notes
 
 - The Actors read publicly visible data only and do not log in. Reviewer names and profiles are not collected.
-- Names, addresses and review text are returned in Korean.
+- Korean listings and Korean-store reviews are in Korean. Olive Young Global Mall reviews retain the original language; this example does not cover Olive Young US or Sephora.
 - You pay Apify per result; see each Actor's page for the current price.
