@@ -14,6 +14,17 @@ Examples for getting live data from **Naver Map, Kakao Map, Naver Shopping and O
 | MCP server, local data | [korea-local-data-mcp](https://apify.com/magenta_courser/korea-local-data-mcp) | Naver Map and Kakao Map tools for Claude and other MCP clients |
 | MCP server, commerce | [korea-commerce-mcp](https://apify.com/magenta_courser/korea-commerce-mcp) | Naver Shopping, Daiso, Olive Young and Ohouse tools |
 
+## Olive Young Global: preview low-rating review fields
+
+These two rows are fictional examples, not customer reviews or real product IDs. No account is needed to read this preview.
+
+| Requested product | Reviewed item | Option | Rating |
+| --- | --- | --- | --- |
+| DEMO-BUNDLE | DEMO-BUNDLE | Bundle | 1/5 |
+| DEMO-BUNDLE | DEMO-SINGLE | Single item | 2/5 |
+
+[Open the runnable Apify example](https://apify.com/magenta_courser/oliveyoung-reviews-scraper/examples/find-1-2-star-olive-young-global-reviews) (Apify sign-in required to run). If you have a question about the output, [open a GitHub issue](https://github.com/experimory-crypto/naver-map-scraper-examples/issues) titled `Olive Young example: [question]` (GitHub sign-in required). Mention only the field you need, such as option, rating, or collection status. Please don't post account or order details or original review text.
+
 ## Quick start (curl)
 
 One HTTP call runs an Actor and returns the results as JSON:
