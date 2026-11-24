@@ -6,6 +6,7 @@ Examples for getting live data from **Naver Map, Kakao Map, Naver Shopping and O
 |---|---|---|
 | Naver Map places | [naver-place-search-scraper](https://apify.com/magenta_courser/naver-place-search-scraper) | Keyword → businesses with address, phone, coordinates, rating, review counts |
 | Naver Map reviews | [naver-place-reviews-scraper](https://apify.com/magenta_courser/naver-place-reviews-scraper) | Place ID or URL → visitor reviews with rating, text, date, keywords, owner reply |
+| Naver Blog, Cafe & News mentions | [naver-blog-cafe-search-scraper](https://apify.com/magenta_courser/naver-blog-cafe-search-scraper) | Keyword → titles, dates, source and original links |
 | Kakao Map places | [kakaomap-place-search-scraper](https://apify.com/magenta_courser/kakaomap-place-search-scraper) | Keyword → businesses, same field names as the Naver Actor |
 | Naver Shopping ranks | [naver-shopping-rank-tracker](https://apify.com/magenta_courser/naver-shopping-rank-tracker) | Keyword → ranked products with price, store, reviews |
 | Olive Young best sellers | [oliveyoung-ranking-scraper](https://apify.com/magenta_courser/oliveyoung-ranking-scraper) | Market and category → Top 100 ranking with price and rank change |
@@ -43,6 +44,7 @@ curl -X POST "https://api.apify.com/v2/acts/magenta_courser~naver-place-search-s
 - [python/places_and_reviews.py](python/places_and_reviews.py) — search places, then fetch reviews of the top results
 - [node/places-and-reviews.mjs](node/places-and-reviews.mjs) — the same flow in Node.js
 - [claude/README.md](claude/README.md) — use the data from Claude through MCP
+- [Claude + Apify MCP: 네이버 블로그·카페 브랜드 언급 표 만들기](blog/apify-mcp-01-naver-brand-monitor-ko.md) (한국어) · 공개된 예시 두 줄로 결과부터 확인. 읽는 데 Apify 계정은 필요 없고, 내 키워드로 수집할 때만 연결이 필요합니다.
 - [chatgpt/README.md](chatgpt/README.md) — build a custom GPT with these Actors as actions
 - [blog/how-to-get-naver-map-data.md](blog/how-to-get-naver-map-data.md) — why Naver Map, and a step-by-step walkthrough
 
